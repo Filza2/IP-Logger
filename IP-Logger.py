@@ -1,10 +1,8 @@
 try:
-    import re,time,secrets,random
-    from colorama import Fore
-    from requests import get,post
+    import re,time,secrets,random;from colorama import Fore;from requests import get,post
     rc=Fore.LIGHTRED_EX;Rc=Fore.RED;gc=Fore.GREEN;Gc=Fore.LIGHTGREEN_EX;rsc=Fore.RESET;cya=Fore.CYAN;wh=Fore.WHITE;bc=Fore.BLUE
     seth=secrets.token_hex
-except ModuleNotFoundError:exit('[!] Missing Module !')
+except Exception as e:print(f'[!] Download The Missing Module ! , {e}');exit()
 def get_info_log():
 	global ID,confirmation,confirmed
 	count_refresh=0
