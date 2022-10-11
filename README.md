@@ -10,7 +10,9 @@ print("""
  1- confirmation code in cookies
  2- Content-Type in headers
  3- Content-Length in headers
- 4- Data For All Tool 
+ 4- Data
+ 
+# Note: All that, it should be edited for all the tools, any requests that need to be modified, I put it in a special form
 
 every thing is ready for editing
 And thank you for view our tools
