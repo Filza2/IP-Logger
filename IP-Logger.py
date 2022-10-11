@@ -200,7 +200,7 @@ Content-Disposition: form-data; name="destination"
 
 {url}
 -----------------------------85430372024056842421057916995--''')
-    if 'error' in rc3_id.text:print(rc3_id.text);exit(f'{rc}[!] Error ..{wh} ')
+    if 'error' in rc3_id.text:exit(f'{rc}[!] Error ..{wh} ')
     else:
         try:
             ID=str(rc3_id.json()['go']).split('/')[2]
