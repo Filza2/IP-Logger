@@ -1,44 +1,42 @@
 try:
-    import re,time,secrets,random;from colorama import Fore;from requests import get,post
+    import re,time,random;from colorama import Fore;from requests import get,post
     rc=Fore.LIGHTRED_EX;Rc=Fore.RED;gc=Fore.GREEN;Gc=Fore.LIGHTGREEN_EX;rsc=Fore.RESET;cya=Fore.CYAN;wh=Fore.WHITE;bc=Fore.BLUE
-    seth=secrets.token_hex
 except Exception as e:print(f'[!] Download The Missing Module ! , {e}');exit()
 def Get_INF():
     global ID,confirmation
-    data=f'''-----------------------------104422536224016790152580796769
+    data=f'''-----------------------------200558575026989648353507342586
 Content-Disposition: form-data; name="interval"
 
 all
------------------------------104422536224016790152580796769
+-----------------------------200558575026989648353507342586
 Content-Disposition: form-data; name="page"
 
 1
------------------------------104422536224016790152580796769
+-----------------------------200558575026989648353507342586
 Content-Disposition: form-data; name="sort"
 
 created
------------------------------104422536224016790152580796769
+-----------------------------200558575026989648353507342586
 Content-Disposition: form-data; name="order"
 
 desc
------------------------------104422536224016790152580796769
+-----------------------------200558575026989648353507342586
 Content-Disposition: form-data; name="code"
 
 {ID}
------------------------------104422536224016790152580796769--
-'''
+-----------------------------200558575026989648353507342586--'''
     count_refresh=0
     while True:
-        time.sleep(5)
+        time.sleep(1)
         req=post('https://iplogger.org/logger/',headers={
             'Host': 'iplogger.org',
-            'Cookie': f'clhf03028ja={seth(12)}; 375263813157358497=2; integrity={seth(12)}; _ga=GA1.2.{seth(9)}.{seth(10)}; cookies-consent=1661695701; confirmation={confirmation}; 399813053157358497=3; 399795493157358497=3; 399822453157358497=3; 399830823157358497=3; cursor={seth(12)}; 3752638139399315=3; _gid=GA1.2.{seth(9)}.{seth(10)}',
+            'Cookie': f'confirmation={confirmation}',
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
             'Accept-Encoding': 'gzip, deflate',
             'X-Requested-With': 'XMLHttpRequest',
-            'Content-Type': 'multipart/form-data; boundary=---------------------------104422536224016790152580796769',
+            'Content-Type': 'multipart/form-data; boundary=---------------------------200558575026989648353507342586',
             'Content-Length': '645',
             'Origin': 'https://iplogger.org',
             'Referer': f'https://iplogger.org/logger/{ID}/',
@@ -63,7 +61,7 @@ Content-Disposition: form-data; name="code"
                 smart_code=re.findall('<a class=\"more-info-modal\" data-accuracy=\"ip\" title=\"ip\" data-dialog=\"more-info\" data-prepare=\"more_info\" data-index=\"(.*?)\">Smart data<\/a>',con)[0]
                 print("\n--------------------------------")
                 print(f"\n{rc}[{wh}+{rc}] {rc}Target Found")				
-                req_more=post('https://iplogger.org/logger/more/',headers={'Host': 'iplogger.org','Cookie': f'cursor={seth(12)}; clhf03028ja={seth(12)}; 375263813157358497=2; integrity={seth(12)}; _ga=GA1.2.{seth(9)}.{seth(10)}; _gid=GA1.2.{seth(9)}.{seth(10)}; cookies-consent=1661695701; confirmation={confirmation}; 399813053157358497=3; 399795493157358497=3; 399822453157358497=3; 399830823157358497=3; _gat=1','User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0','Accept': 'application/json, text/javascript, */*; q=0.01','Accept-Language': 'ar,en-US;q=0.7,en;q=0.3','Accept-Encoding': 'gzip, deflate','Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8','X-Requested-With': 'XMLHttpRequest','Content-Length': '32','Origin': 'https://iplogger.org','Referer': f'https://iplogger.org/logger/{ID}/','Sec-Fetch-Dest': 'empty','Sec-Fetch-Mode': 'cors','Sec-Fetch-Site': 'same-origin','Te': 'trailers'},data=f'index={smart_code}&code={ID}')
+                req_more=post('https://iplogger.org/logger/more/',headers={'Host': 'iplogger.org','Cookie': f'confirmation={confirmation}','User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0','Accept': 'application/json, text/javascript, */*; q=0.01','Accept-Language': 'ar,en-US;q=0.7,en;q=0.3','Accept-Encoding': 'gzip, deflate','Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8','X-Requested-With': 'XMLHttpRequest','Content-Length': '32','Origin': 'https://iplogger.org','Referer': f'https://iplogger.org/logger/{ID}/','Sec-Fetch-Dest': 'empty','Sec-Fetch-Mode': 'cors','Sec-Fetch-Site': 'same-origin','Te': 'trailers'},data=f'index={smart_code}&code={ID}')
                 latitude=req_more.json()['smart']['latitude']
                 longitude=req_more.json()['smart']['longitude']
                 print(f'''
@@ -104,7 +102,7 @@ def Get_Status():
     global ID,confirmation
     rlink=get(f'https://iplogger.org/logger/{ID}/',headers={
         'Host': 'iplogger.org',
-        'Cookie': f'clhf03028ja={seth(12)}; 375263813157358497=2; integrity={seth(12)}; _ga=GA1.2.{seth(9)}.{seth(10)}; cookies-consent=1661695701; confirmation={confirmation}; 399813053157358497=3; 399795493157358497=3; 399822453157358497=3; 399830823157358497=3; cursor={seth(12)}; 3752638139399315=3; _gid=GA1.2.{seth(9)}.{seth(10)}; _gat=1',
+        'Cookie': f'confirmation={confirmation}',
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
         'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
@@ -122,34 +120,33 @@ def Get_Status():
 	    </div>''',rlink.text)[0]
     link_admin=f'https://iplogger.org/logger/{ID}/'
     domain=['2no.co','yip.su','02ip.ru','ezstat.ru','maper.info']
-    d=str(f'''-----------------------------3647564529953920439886619165
+    d=str(f'''-----------------------------4032452102242058801219818235
 Content-Disposition: form-data; name="code"
 
 {ID}
------------------------------3647564529953920439886619165
+-----------------------------4032452102242058801219818235
 Content-Disposition: form-data; name="name"
 
 shortlink
------------------------------3647564529953920439886619165
+-----------------------------4032452102242058801219818235
 Content-Disposition: form-data; name="domain"
 
 {random.choice(domain)}
------------------------------3647564529953920439886619165
+-----------------------------4032452102242058801219818235
 Content-Disposition: form-data; name="manual"
 
 {str(link_target).split('https://iplogger.com/')[1]}
------------------------------3647564529953920439886619165--
-''')
+-----------------------------4032452102242058801219818235--''')
     rupdate=post('https://iplogger.org/logger/update/',headers={
         'Host': 'iplogger.org',
-        'Cookie': f'clhf03028ja={seth(12)}; 375263813157358497=2; integrity={seth(12)}; _ga=GA1.2.{seth(9)}.{seth(10)}; cookies-consent=1661695701; confirmation={confirmation}; 399813053157358497=3; 399795493157358497=3; 399822453157358497=3; 399830823157358497=3; cursor={seth(12)}; 3752638139399315=3; _gid=GA1.2.{seth(9)}.{seth(10)}',
+        'Cookie': f'confirmation={confirmation}',
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
         'Accept': 'application/json, text/javascript, */*; q=0.01',
         'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
         'Accept-Encoding': 'gzip, deflate',
         'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type': 'multipart/form-data; boundary=---------------------------3647564529953920439886619165',
-        'Content-Length': '530',
+        'Content-Type': 'multipart/form-data; boundary=---------------------------4032452102242058801219818235',
+        'Content-Length': '536',
         'Origin': 'https://iplogger.org',
         'Referer': f'https://iplogger.org/logger/{ID}/',
         'Sec-Fetch-Dest': 'empty',
@@ -183,28 +180,27 @@ def Crate_Link():
     if 'host' in check_url.text:pass
     elif 'errors' in check_url.text:exit(f'{rc}[{wh}!{rc}] Recheck Your url and Retry Please...')
     else:exit(f'{rc}[{wh}!{rc}] Error')
-    d=f'''-----------------------------357071630011805991773817638756
-Content-Disposition: form-data; name="destination"
-
-{url}
------------------------------357071630011805991773817638756--'''
     rc3_id=post('https://iplogger.org/create/shortlink/',headers={
         'Host': 'iplogger.org',
-        'Cookie': f'clhf03028ja={seth(12)}; 375263813157358497=2; integrity={seth(12)}; _ga=GA1.2.{seth(9)}.{seth(10)}; cookies-consent=1661695701; confirmation={confirmation}; 399813053157358497=3; 399795493157358497=3; 399822453157358497=3; 399830823157358497=3; cursor={seth(12)}; 3752638139399315=3; _gid=GA1.2.{seth(9)}.{seth(10)}; _gat=1',
+        'Cookie': f'confirmation={confirmation}',
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
         'Accept': 'application/json, text/javascript, */*; q=0.01',
         'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
         'Accept-Encoding': 'gzip, deflate',
         'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type': 'multipart/form-data; boundary=---------------------------357071630011805991773817638756',
-        'Content-Length': '205',
+        'Content-Type': 'multipart/form-data; boundary=---------------------------85430372024056842421057916995',
+        'Content-Length': '195',
         'Origin': 'https://iplogger.org',
         'Referer': 'https://iplogger.org/',
         'Sec-Fetch-Dest': 'empty',
         'Sec-Fetch-Mode': 'cors',
         'Sec-Fetch-Site': 'same-origin',
-        'Te': 'trailers'},data=d)
-    if 'error' in rc3_id.text:exit(f'{rc}[!] Error ..{wh} ')
+        'Te': 'trailers'},data=f'''-----------------------------85430372024056842421057916995
+Content-Disposition: form-data; name="destination"
+
+{url}
+-----------------------------85430372024056842421057916995--''')
+    if 'error' in rc3_id.text:print(rc3_id.text);exit(f'{rc}[!] Error ..{wh} ')
     else:
         try:
             ID=str(rc3_id.json()['go']).split('/')[2]
